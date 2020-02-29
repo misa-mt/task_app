@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="center jumbotron" id="main-top">
+      <h1 id="main-logo">TaskApp</h1>
+      <p>TaskAppは簡易ToDo管理ツールです。</p>
+      
+      <p>↓↓初めてのご利用↓↓</p>
+      <%= link_to "アカウント作成", new_user_path, class:"btn btn-success btn-lg" %>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <h1>ログイン</h1>
+    <% if current_user %>
+      <%= form_with(scope: :session, local: true) do |f| %>
+
+        <%= f.label :email, "メールアドレス", class: "label-login" %>
+        <%= f.email_field :email, class: 'form-control', readonly: true %>
+  
+        <%= f.label :password, "パスワード", class: "label-login" %>
+        <%= f.password_field :password, class: 'form-control', readonly: true %>
+        <br>
+        <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block", disabled: "disabled" %>
+      <% end %>
+    <% else %>
+      <%= form_with(scope: :session, model: @user, url: login_path, local: true) do |f| %>
+
+        <%= f.label :email, "メールアドレス", class: "label-login" %>
+        <%= f.email_field :email, class: 'form-control' %>
+  
+        <%= f.label :password, "パスワード", class: "label-login" %>
+        <%= f.password_field :password, class: 'form-control' %>
+        
+        <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
+          <%= f.check_box :remember_me, id: "remember-me" %>
+          <span>ログイン情報を記憶する</span>
+        <% end %>
+        <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
