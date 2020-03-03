@@ -4,17 +4,26 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <% #ページネーション %>
+    <%= link_to "タスク新規作成", new_user_task_path, class: "btn btn-primary btn-lg btn-task" %>
     <table class="table table-condensed table-hover" id="table-tasks">
       <thead>
         <tr>
-          <th><%= Task.human_attribute_name :name %></th>
+          <th><%= Task.human_attribute_name :name, class: "task-index" %></th>
+          <th><%= Task.human_attribute_name :created_at %></th>
         </tr>
       </thead>
       
       <tbody>
         <% @tasks.each do |task| %>
           <tr>
-            <td><%= link_to task.name, user_task_path(@user, task) %></td>
+            <td><%= link_to task.name, user_task_path(@user, task), class: "task-i-name" %></td>
+            <td><%= l(task.created_at, format: :long) %></td>
+            <td>
+              <%= link_to "編集", edit_user_task_path(@user, task), class: "btn btn-success" %>
+              <%= link_to "削除", user_task_path(@user, task), method: :delete,
+                  data: { confirm: "削除してよろしいですか？"},
+                  class: "btn btn-danger" %>
+            </td>
           </tr>
         <% end %>
       </tbody>

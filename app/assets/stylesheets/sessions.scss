@@ -14,3 +14,18 @@
     font-weight: normal;
   }
 }
+
+.task-i-name {
+  font-size: 1.3em;
+}
+
+#table-tasks {
+  td {
+    padding-top: 10px;
+  }
+  th {
+    .task-index {
+      width: 40%;
+    }
+  }
+}

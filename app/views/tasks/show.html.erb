@@ -15,7 +15,8 @@
         </tr>
         <tr>
           <th><%= Task.human_attribute_name :details %></th>
-          <td><%= @task.details %></td>
+          <td><%= raw Rinku.auto_link(h(@task.details)) %>
+          </td>
         </tr>
         <tr>
           <th><%= Task.human_attribute_name :created_at %></th>
@@ -27,7 +28,9 @@
         </tr>
       </thead>
     </table>
-    <div class="btn btn-success btn-lg btn-form">編集</div>
-    <div class="btn btn-danger btn-lg btn-form">削除</div>
+    <%= link_to "編集", edit_user_task_path, class: "btn btn-success btn-lg btn-form" %>
+    <%= link_to "削除", user_task_path, method: :delete,
+        data: { confirm: "削除してよろしいですか？"},
+        class: "btn btn-danger btn-lg btn-form" %>
   </div>
 </div>
