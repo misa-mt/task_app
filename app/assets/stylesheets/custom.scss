@@ -88,6 +88,10 @@ p {
   font-weight: bold;
 }
 
+.dropdown-header {
+  background-color: #dddddd;
+  font-weight: bold;
+}
 
 /* デバッグウインドウ */
 
@@ -117,3 +121,4 @@ p {
     color: $state-danger-text;
   }
 }
+

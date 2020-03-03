@@ -10,11 +10,13 @@
       </tr>
     </thead>
       
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user %></td>
-      </tr>
-    <% end %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
 
