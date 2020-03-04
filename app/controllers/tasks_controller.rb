@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   before_action :set_user
   before_action :set_task
+  before_action :logged_in_user
+  before_action :correct_user
+  
   
   def index
     @tasks = @user.tasks
@@ -53,6 +56,20 @@ class TasksController < ApplicationController
   
   def set_task
     @task = @user.tasks.find_by(id: params[:id])
+  end
+  
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "ログインしてください。"
+      redirect_to login_url
+    end
+  end
+  
+  def correct_user
+    unless current_user == @user
+      flash[:danger] = "権限がありません。"
+      redirect_to root_url
+    end
   end
   
 end
