@@ -56,6 +56,10 @@ p {
   background-color: teal;
 }
 
+.navber-default {
+  border-color: #e7e7e7;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -78,6 +82,7 @@ p {
 }
 
 #menu:hover {
+  background-color: teal;
   color: #cccccc;
   font-weight: bold;
 }

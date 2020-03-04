@@ -1,5 +1,5 @@
-<% provide(:title, 'Sign up') %>
-<h1>ユーザー登録</h1>
+<% provide(:title, 'Edit User') %>
+<h1>ユーザー情報編集</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -8,7 +8,7 @@
       
       <%= f.label :name, class: "label-form" %>
       <%= f.text_field :name, class: "form-control" %>
-
+      
       <%= f.label :email, class: "label-form" %>
       <%= f.email_field :email, class: "form-control" %>
 
@@ -18,7 +18,8 @@
       <%= f.label :password_confirmation, class: "label-form" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
 
-      <%= f.submit "新規登録", class: "btn btn-primary btn-block btn-form" %>
+      <%= f.submit "更新", class: "btn btn-primary btn-form" %>
+      <div class="btn btn-default btn-form">キャンセル</div>
     <% end %>
   </div>
 </div>
