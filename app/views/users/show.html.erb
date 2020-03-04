@@ -19,7 +19,7 @@
         </tr>
         <tr>
           <th><%= User.human_attribute_name :created_at %></th>
-          <td><%= @user.created_at %></td>
+          <td><%= l(@user.created_at, format: :long) %></td>
         </tr>
       </thead>
     </table>

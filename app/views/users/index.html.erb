@@ -2,7 +2,7 @@
 <h1>利用者一覧</h1>
 
 <div class="col-md-10 col-md-offset-1">
-  <% # ページネーション %>
+  <%= will_paginate %>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
       <tr>
@@ -14,9 +14,13 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= link_to user.name, user %></td>
+          <td><%= link_to "削除", user_path(user), method: :delete,
+                  data: { confirm: "#{user.name}を削除します。よろしいですか？" },
+                  class: "btn btn-danger btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= will_paginate %>
 </div>
 
